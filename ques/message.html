@@ -135,17 +135,17 @@
         .btm {
             height: 10%;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-content: center;
-            flex-wrap: wrap;
         }
 
         .gray-btn,
         .green-btn,
         .red-btn {
-            width: 90vw;
-            padding: 10px 0;
-            font-size: 5.5vw;
+            width: 45%;
+            height: 90%;
+            /* padding: 5px 0; */
+            font-size: 25px;
             font-family: berlin-bold;
             background-color: #b6b6b6;
             color: white;
@@ -332,42 +332,40 @@
         <div class="ti"></div>
         <div class="msg"></div>
     </div>
-
+    <!-- new -->
     <div class="btm">
-        <div class="green-btn continue-btn">CONTINUE</div>
+        <div class="green-btn prev-btn">Prev</div>
+        <div class="green-btn next-btn">Next</div>
     </div>
     <audio src="../res/voice/correct.mp3" id="correct-aud"></audio>
     <script>
-
-        // var showText = function (target, message, index, interval) {
-        //     if (index < message.length) {
-        //         $(target).append(message[index++]);
-        //         setTimeout(function () { showText(target, message, index, interval); }, interval);
-        //     }
-        // }
-        // $(function () {
-        //     showText(".msg", window[appendStr + "-msg" + window.parent.chapter], 0, 50);
-        // });
+        if (window.parent.chapter == 1) {
+            $(".prev-btn").css({opacity:.3});
+        }
 
         $(".ti").text(window["ti" + window.parent.chapter]);
         $(".msg").html(window["msg" + window.parent.chapter]);
 
 
-        $(".continue-btn").click(function () {
+        $(".next-btn").click(function () {
             localStorage.fullTotalAns--;
             parent.next();
-            $(".continue-btn").off();
+            $(".next-btn").off();
         });
-        console.log(Prism);
+        $(".prev-btn").click(function () {
+            localStorage.fullTotalAns++;
+            parent.prev();
+            $(".prev-btn").off();
+        });
 
-//         $(".report").click(function () {
-//             window.parent.location = `
-// mailto:vlearn.language@gmail.com?subject=Error%20reporting&
-// body=${currentLang}/${yourLang}%20opnLvl-${openedLevel}%20curLes-${appendStr}%20chptr-${window.parent.chapter}%20prvLvl-${window.parent.openedPreviousLevel}%0D%0A
-// (Please%20dont%20edit%20above%20line)%0D%0A
-// (Write%20something%20below%20to%20clarify%20the%20error)
-// `;
-//         });
+        $(".report").click(function () {
+            window.parent.location = `
+                mailto:quec.developer@gmail.com?subject=Data%20Science%20Error%20Reporting&
+                body=ques-typing,%20opnLvl-${openedLevel}%20chptr-${window.parent.chapter}%20prvLvl-${window.parent.openedPreviousLevel}%0D%0A
+                (Please%20dont%20edit%20above%20line)%0D%0A
+                (Write%20something%20below%20to%20clarify%20the%20error(optional))
+            `;
+        });
     </script>
 </body>
 
