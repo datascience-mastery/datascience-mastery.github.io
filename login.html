@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- new -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,6 +38,17 @@
             color: #6f6f6f;
             user-select: none;
         }
+        
+        @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+        }
+        @keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+        }
 
         .top {
             width: 100vw;
@@ -66,8 +77,8 @@
         }
 
         .char-img {
-            width: 25vh;
-            height: 25vh;
+            width: 90px;
+            height: 90px;
         }
 
         .btm {
@@ -287,13 +298,43 @@
     <div class="top">
         <h1>Data Science</h1>
     </div>
+    <style>
+        .screen-bg {
+            width: 100%;
+            height: 35%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .screen-ti {
+            width: 138px;
+            font-size: x-large;
+            color: #000;
+        }
+        .navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            }
+
+        .navigation-point {
+            width: 10px;
+            height: 10px;
+            background-color: #333;
+            margin: 0 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
     <div class="mid">
-        <div class="char-img-bg"><img src="res/image/character/squirrel.svg" class="char-img"></div>
+        <div class="screen-bg">
+            <img src="res/image/character/1.svg" class="char-img">
+            <div class="screen-ti"></div>
+        </div>
+        <div class="navigation"></div>
+        
         <div class="input-bg">
             <form class="input-con">
-                <!-- <div class="input-txt">Email</div>
-                <input type="email" name="email" id="email"> -->
-
                 <div class="form email-form">
                     <div class="name-sectioin"></div>
                     <input type="email" name="_email" autocomplete="off" id="email" required>
@@ -495,6 +536,64 @@
                     });
 
             });
+
+            var message = [
+                'All Data Science Course At One Place For Free!',
+                'Courses Included Python, ML, DL, Maths And Many More...',
+                'Python Libraries Like Numpy, Pandas And SkLearn',
+                'Dedicated Quiz For Every Courses',
+            ]
+            var count=0;
+            function RevealLetter(index) {
+                if (Object.keys(message).length == count) {
+                    count=0;
+                }
+                const screenTiElement = document.querySelector('.screen-ti');
+                const textContent = message[count];
+                screenTiElement.textContent = '';
+
+                const charSpans = [];
+                var totalAnimTime = 0;
+
+                for (let i = 0; i < textContent.length; i++) {
+                    const charSpan = document.createElement('span');
+                    charSpan.textContent = textContent[i];
+                    charSpan.style.opacity = '0';
+                    charSpan.style.animation = `fadeIn 0.5s ${i * 0.05}s forwards, fadeOut 0.5s ${i * 0.05 + 3}s forwards`;
+                    totalAnimTime=(i * 0.05 + 3);
+                    charSpans.push(charSpan);
+                    screenTiElement.appendChild(charSpan);
+                }
+
+                let animationCount = 0;
+
+                function onAnimationEnd() {
+                    animationCount++;
+
+                    if (animationCount === charSpans.length) {
+                        setTimeout(() => {
+                            RevealLetter();
+                            console.log('totalAnimTime',totalAnimTime);
+                        }, (totalAnimTime*700));
+                    }
+                }
+
+                function finished() {
+                    console.log('Animation finished!');
+                    // Add your code to execute when the animation is finished
+                }
+
+                charSpans.forEach(charSpan => {
+                    charSpan.addEventListener('animationend', onAnimationEnd);
+                });
+                count+=1;
+            }
+
+            
+            RevealLetter()
+
+
+
         </script>
 </body>
 
