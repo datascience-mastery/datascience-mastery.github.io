@@ -137,7 +137,9 @@
             if (chapter < totalLevel) {
                 chapter++;
                 var frame = $('#_iframe')[0];
-                frame.contentWindow.location.replace(window["type" + chapter] + ".html");
+                setTimeout(() => {
+                    frame.contentWindow.location.replace(window["type" + chapter] + ".html");
+                }, 400);
                 //$("iframe").attr("src", window[appendStr+"-type"+chapter] +".html");
                 fillBar();
             } else {
@@ -162,6 +164,22 @@
                     }
                     window.history.back();
                 }
+            }
+        }
+
+        function prev() {
+            localStorage.crctAns = crctAns;
+            localStorage.fullTotalAns--;
+            if (chapter > 1) {
+                chapter--;
+                var frame = $('#_iframe')[0];
+                setTimeout(() => {
+                    frame.contentWindow.location.replace(window["type" + chapter] + ".html");
+                }, 400);
+                //$("iframe").attr("src", window[appendStr+"-type"+chapter] +".html");
+                fillBar();
+            } else {
+                //its first chapter
             }
         }
 
