@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../res/jquery-3.6.2.min.js"></script>
     <link rel="stylesheet" href="../res/prism/prism.css">
-    <title>Image</title>
+    <title>Typing</title>
     <style>
         @font-face {
             font-family: berlin-bold;
@@ -135,16 +135,15 @@
         .btm {
             height: 10%;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-content: center;
-            flex-wrap: wrap;
         }
-
+        
         .gray-btn,
         .green-btn,
         .red-btn {
-            width: 90vw;
-            padding: 10px 0;
+            width: 90%;
+            padding: 15px 0;
             font-size: 5.5vw;
             font-family: berlin-bold;
             background-color: #b6b6b6;
@@ -154,6 +153,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        .green-btn {
+            width: 45%;
+            height: 45%;
         }
 
         .gray-btn:active {
@@ -313,11 +316,12 @@
     </div>
 
     <div class="btm">
+        <div class="green-btn prev-btn">Prev</div>
         <div class="green-btn check-btn">CHECK</div>
         <div class="result-bg">
             <div class="result-ct">
                 <div class="result-txt">Correct</div>
-                <div class="green-btn continue-btn">CONTINUE</div>
+                <div class="green-btn continue-btn" style="height: 25%; background-color: #01420f; box-shadow: 1px 3px #000000;">CONTINUE</div>
                 <div class="red-btn retry-btn" style="display:none;">CONTINUE</div>
             </div>
         </div>
@@ -326,15 +330,10 @@
     <audio src="../res/voice/wrong.mp3" id="wrong-aud"></audio>
     <script>
 
-        // var showText = function (target, message, index, interval) {
-        //     if (index < message.length) {
-        //         $(target).append(message[index++]);
-        //         setTimeout(function () { showText(target, message, index, interval); }, interval);
-        //     }
-        // }
-        // $(function () {
-        //     showText(".msg", window[appendStr + "-msg" + window.parent.chapter], 0, 50);
-        // });
+        if (window.parent.levelType == 'quiz') {
+            $(".prev-btn").fadeOut(0);
+            $(".check-btn").css({width:'90%'});
+        }
 
         $(".ti").text(window["ti" + window.parent.chapter]);
         $(".msg").html(window["msg" + window.parent.chapter]);
@@ -380,7 +379,12 @@
                 ansWrong();
             }
         });
-        console.log(Prism);
+
+        $(".prev-btn").click(function () {
+            localStorage.fullTotalAns++;
+            parent.prev();
+            $(".prev-btn").off();
+        });
 
         $(".continue-btn, .retry-btn").click(function () {
             console.log('workkkk')
@@ -388,14 +392,14 @@
             
         });
 
-//         $(".report").click(function () {
-//             window.parent.location = `
-// mailto:vlearn.language@gmail.com?subject=Error%20reporting&
-// body=${currentLang}/${yourLang}%20opnLvl-${openedLevel}%20curLes-${appendStr}%20chptr-${window.parent.chapter}%20prvLvl-${window.parent.openedPreviousLevel}%0D%0A
-// (Please%20dont%20edit%20above%20line)%0D%0A
-// (Write%20something%20below%20to%20clarify%20the%20error)
-// `;
-//         });
+        $(".report").click(function () {
+            window.parent.location = `
+                mailto:quec.developer@gmail.com?subject=Data%20Science%20Error%20Reporting&
+                body=ques-typing,%20opnLvl-${openedLevel}%20chptr-${window.parent.chapter}%20prvLvl-${window.parent.openedPreviousLevel}%0D%0A
+                (Please%20dont%20edit%20above%20line)%0D%0A
+                (Write%20something%20below%20to%20clarify%20the%20error(optional))
+            `;
+        });
     </script>
 </body>
 
