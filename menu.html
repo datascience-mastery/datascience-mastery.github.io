@@ -329,23 +329,23 @@
             if (type == 'signout') {
                 var sync = JSON.parse(localStorage.sync);
 
-                if (type == "signout") {
-                    if (!initialised) {
-                        console.log('Firebase is initialising...')
-                        initialiseFirebase();
-                        initialised = true;
-                    }
-                    const auth = getAuth();
-                    signOut(auth).then(() => {
-                        // Sign-out successful.
-                        localStorage.clear();
-                        // location.replace("login.html");
-                    }).catch((error) => {
-                        // An error happened.
-                        console.log(error);
-                        $(".error-txt").fadeIn();
-                    });
-                }
+                // if (type == "signout") {
+                //     if (!initialised) {
+                //         console.log('Firebase is initialising...')
+                //         initialiseFirebase();
+                //         initialised = true;
+                //     }
+                //     const auth = getAuth();
+                //     signOut(auth).then(() => {
+                //         // Sign-out successful.
+                //         localStorage.clear();
+                //         // location.replace("login.html");
+                //     }).catch((error) => {
+                //         // An error happened.
+                //         console.log(error);
+                //         $(".error-txt").fadeIn();
+                //     });
+                // }
             }
         }
 
@@ -371,8 +371,8 @@
                     console.log(user.uid);
                 } else {
                     // User not logged in or has just logged out.
-                    alert("User Logout")
-                    location.replace("login.html");
+                    console.log("AuthStateChange: User Logout")
+                    // location.replace("login.html");
                 }
             });
         }
