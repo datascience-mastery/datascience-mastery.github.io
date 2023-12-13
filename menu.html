@@ -329,23 +329,23 @@
             if (type == 'signout') {
                 var sync = JSON.parse(localStorage.sync);
 
-                // if (type == "signout") {
-                //     if (!initialised) {
-                //         console.log('Firebase is initialising...')
-                //         initialiseFirebase();
-                //         initialised = true;
-                //     }
-                //     const auth = getAuth();
-                //     signOut(auth).then(() => {
-                //         // Sign-out successful.
-                //         localStorage.clear();
-                //         // location.replace("login.html");
-                //     }).catch((error) => {
-                //         // An error happened.
-                //         console.log(error);
-                //         $(".error-txt").fadeIn();
-                //     });
-                // }
+                if (type == "signout") {
+                    if (!initialised) {
+                        console.log('Firebase is initialising...')
+                        initialiseFirebase();
+                        initialised = true;
+                    }
+                    const auth = getAuth();
+                    signOut(auth).then(() => {
+                        // Sign-out successful.
+                        localStorage.clear();
+                        // location.replace("login.html");
+                    }).catch((error) => {
+                        // An error happened.
+                        console.log(error);
+                        $(".error-txt").fadeIn();
+                    });
+                }
             }
         }
 
