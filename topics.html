@@ -472,6 +472,7 @@
             }, 400);
         }
         if (openedType == 'python') {
+            $("h1").text('Python');
             Heading('Intro');
             Append_('Intro to Python', ['About Python', 'Python Syntax', 'Python Indentation', 'Comments']);
             Heading('Variables & Data types');
@@ -495,7 +496,7 @@
             Append_('Function', ['3knn', '3auc']);
             Append_('Lambda', ['3knn', '3auc']);
         } else if (openedType == 'ml') {
-            // Heading('Intro');
+            $("h1").text('Machine Learning');
             Append_('Intro to Machine Learning', ['About Python', 'Python Syntax', 'Python Indentation', 'Comments']);
             Append_('Mean Median Mode', ['About Python',]);
             Append_('Standard Deviation', ['About Python',]);
@@ -523,7 +524,6 @@
             Append_('Polynomial Regression', ['About Python',]);
             Append_('K Neareast Neighbour (KNN)', ['About Python',]);
             Append_('Decision Tree', ['About Python',]);
-
         }
         
         totalMainLevel = index;
