@@ -1,6 +1,5 @@
 //Tuple
 k=0;
-
 k++;
 window["type"+k] = "message";
 window["ti"+k] = "Tuple"; //title

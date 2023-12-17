@@ -5,7 +5,6 @@ window["type"+k] = "message";
 window["ti"+k] = "Polynomial Regression"; //title
 window["msg"+k] = `
 <p>Polynomial regression is a type of regression analysis in which the relationship between the independent variable x and the dependent variable y is modeled as an n-th degree polynomial. In other words, instead of fitting a linear equation to the data, polynomial regression uses a polynomial equation.</p>
-
 `; //message
 
 k++;
@@ -14,7 +13,6 @@ window["ti"+k] = "Why Polynomial Regression?"; //title
 window["msg"+k] = `
 <p>A simple linear regression algorithm only works when the relationship between the data is linear. But suppose we have non-linear data, then linear regression will not be able to draw a best-fit line. Simple regression analysis fails in such conditions. Consider the below diagram, which has a non-linear relationship, and you can see the linear regression results on it, which does not perform well, meaning it does not come close to reality. Hence, we introduce polynomial regression to overcome this problem, which helps identify the curvilinear relationship between independent and dependent variables.</p>
 ${ShowImage('77.png')}
-
 `; //message
 
 k++;
@@ -27,7 +25,6 @@ window["msg"+k] = `
 <p>Consider an example my input value is 35, and the degree of a polynomial is 2, so I will find 35 power 0, 35 power 1, and 35 power 2 this helps to interpret the non-linear relationship in data.<br>The equation of polynomials becomes something like this.</p>
 <p><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;y = a<sub>0</sub>&nbsp;+ a<sub>1</sub>x<sub>1</sub>&nbsp;+ a<sub>2</sub>x<sub>1</sub><sup>2</sup>&nbsp;+ … + a<sub>n</sub>x<sub>1</sub><sup>n</sup></b></p>
 <p>The degree of order which to use is a Hyperparameter, and we need to choose it wisely. But using a high degree of polynomial tries to overfit the data, and for smaller values of degree, the model tries to underfit, so we need to find the optimum value of a degree. Polynomial Regression models are usually fitted with the method of least squares. The least square method minimizes the variance of the coefficients under the Gauss-Markov Theorem.</p>
-
 `; //message
 
 k++;
@@ -44,7 +41,6 @@ window["msg"+k] = `
 <p>Now we know how polynomial regression works and helps to build a model over non-linear data. Let’s compare both algorithms practically and see the results.</p>
 <p>First, we will generate the data using some equation ax^2 + bx + c, and then apply simple linear regression to it to form a linear equation. Then we will apply polynomial regression on top of it, which will make an easy comparison between the practical performance of both algorithms.</p>
 <p>Initially, we will try it with only one input column and one output column. After having a brief understanding we will try it on high-dimensional data.</p>
-
 `; //message
 
 k++;
@@ -159,7 +155,6 @@ def polynomial_regression(degree):
 ${FullCode(`polynomial_regression(25)`)}
 ${ShowImage('82.png')}
 <p>This is a problem with a High degree of polynomial, which I want to show you practically, so it’s necessary to choose an optimum value of a degree. here I would like to recommend you try a different degree and analyze the results.</p>
-
 `; //message
 
 k++;
