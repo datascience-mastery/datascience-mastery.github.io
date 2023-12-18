@@ -329,7 +329,8 @@
     <audio src="../res/voice/correct.mp3" id="correct-aud"></audio>
     <audio src="../res/voice/wrong.mp3" id="wrong-aud"></audio>
     <script>
-
+        totalInput = [];
+        
         if (window.parent.levelType == 'quiz') {
             $(".prev-btn").fadeOut(0);
             $(".check-btn").css({width:'90%'});
