@@ -1,6 +1,5 @@
 //set
 k=0;
-
 k++;
 window["type"+k] = "message";
 window["ti"+k] = "Set"; //title
@@ -17,7 +16,6 @@ thisset = {"apple", "banana", "cherry"}
 print(thisset)`)}
 ${OutputCode(`{'cherry', 'apple', 'banana'}`)}
 ${Note('Sets are unordered, so you cannot be sure in which order the items will appear.')}
-
 `; //message
 
 k++;
