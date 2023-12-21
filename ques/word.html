@@ -82,6 +82,10 @@ body {
     margin: 2vh 5vw;
 }
 
+.code-con {
+    overflow-x: scroll;
+}
+
 .btm {
     height: 10%;
     display: flex; justify-content: center; align-content: center;
@@ -188,15 +192,15 @@ ans = window["ans"+window.parent.chapter]
 console.log(ans);
 
 $(".ques-txt").html(window["q"+window.parent.chapter]);
-$(".q-ct1").text(window["o1"+window.parent.chapter]);
-$(".q-ct2").text(window["o2"+window.parent.chapter]);
+$(".q-ct1").html(window["o1"+window.parent.chapter]);
+$(".q-ct2").html(window["o2"+window.parent.chapter]);
 if (window["o3"+window.parent.chapter] == null) {
     //true or false
     $(".q-ct3").fadeOut(0);
     $(".q-ct4").fadeOut(0);
 } else {
-    $(".q-ct3").text(window["o3"+window.parent.chapter]);
-    $(".q-ct4").text(window["o4"+window.parent.chapter]);
+    $(".q-ct3").html(window["o3"+window.parent.chapter]);
+    $(".q-ct4").html(window["o4"+window.parent.chapter]);
 }
 
 }

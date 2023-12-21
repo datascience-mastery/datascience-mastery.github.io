@@ -56,15 +56,6 @@ window["ans"+k] = 4;
 
 k++;
 window["type"+k] = "word";
-window["q"+k] = `Which method is used to join two sets and exclude duplicate items?`;
-window["o1"+k] = `merge()`;
-window["o2"+k] = "combine()";
-window["o3"+k] = "union()";
-window["o4"+k] = "join()";
-window["ans"+k] = 3;
-
-k++;
-window["type"+k] = "word";
 window["q"+k] = `What is the purpose of the ${WordCode('update()')} method for dictionaries?`;
 window["o1"+k] = "A. To add a new key-value pair to the dictionary";
 window["o2"+k] = "B. To update the value of an existing key in the dictionary";
