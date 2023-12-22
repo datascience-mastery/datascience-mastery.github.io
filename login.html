@@ -18,6 +18,7 @@
             overflow: hidden;
             font-family: SpaceGrotesk;
             color: white;
+            user-select: none;
         }
         .full-con {
             width: 100%;
@@ -171,11 +172,11 @@
         }
 
         .forgot-password:active {
-            color: #171717; /* Changed hover color to a different one */
+            color: #0086fb; /* Changed hover color to a different one */
         }
         .error-txt {
             width: 100%;
-            height: 25px;
+            height: 50px;
             color: red;
         }
     </style>
@@ -271,6 +272,21 @@
             }
         });
 
+        function ErrorTxt(error, red=true) {
+            console.log('ErrorTxt called');
+            if (error) {
+                var filt = error.replace('auth/', '')
+            } else {
+                var filt = error;
+            }
+            $(".error-txt").text("*"+filt);
+            if (red) {
+                $(".error-txt").css({color:'red'});
+            } else {
+                $(".error-txt").css({color:'green'});
+            }
+        }
+
         function HideMain() {
             $(".full-con").css({height:'20vh', borderRadius: '0px 0px 100px 0'});
             $(".main-top, .main-mid, .main-btm").css({opacity:'0'});
@@ -324,7 +340,7 @@
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    checkError(errorCode);
+                    ErrorTxt(errorCode);
                 });
         });
         var loginClick = false;
@@ -371,22 +387,25 @@
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    checkError(errorCode);
+                    ErrorTxt(errorCode);
                     loginClick=false;
                     $(this).text('Login');
                 });
         });
 
         $(".cancel").click(function () {
-            $(".pass-form").css({ transform: 'translateX(0%)', opacity: '1' });
-            $(".login-btn, .create-ac").fadeIn(0);
-            $(".reset-btn, .cancel").fadeOut(0);
+            setTimeout(() => {
+                $(".pass-form").css({ transform: 'translateX(0%)', opacity: '1' });
+                $(".login-btn, .create-ac").fadeIn(0);
+                $(".reset-btn, .cancel").fadeOut(0);
+            }, 400);
         });
 
         var resetClick = false;
         $(".reset-btn").click(function () {
             if (resetClick) {return}
 
+            $(".error-txt").empty();
             resetClick = true;
             var _email = document.getElementById("email").value;
 
@@ -396,17 +415,14 @@
                     // Password reset email sent!
                     console.log("Password reset sent!");
                     resetClick = false;
+                    ErrorTxt('Reset link successfully sent to your mail', false);
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     console.log(errorCode);
-                    if (errorCode == "auth/user-not-found") {
-                        $(".error-txt").text("*User not found!");
-                    } else if (errorCode == "auth/missing-email") {
-                        $(".error-txt").text("*Email is missing!");
-                    } else {
-                        $(".error-txt").text("*Unknown error occured!");
+                    if (errorCode) {
+                        ErrorTxt(errorCode);
                     }
                     resetClick = false;
                 });

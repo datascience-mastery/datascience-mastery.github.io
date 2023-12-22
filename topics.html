@@ -464,7 +464,7 @@
             }, 400);
         }
         function QuizClick(id) {
-            if (id>maxLevel)
+            if (id>=maxLevel)
                 return;
             if (id<maxLevel)
                 localStorage.openedPreviousLevel = true;
@@ -550,6 +550,7 @@
             } else if (i == maxLevel) {
                 //current
                 $("#completed"+i).fadeOut(0);
+                $("#quiz"+i).css({backgroundColor:'#747474'});
             } else {
                 //already completed
                 console.log(crctDict[i])
