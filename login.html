@@ -11,7 +11,7 @@
             font-family: SpaceGrotesk;
             src: url(res/font/SpaceGrotesk.ttf);
         }
-        body {
+        body, html {
             width: 100vw;
             height: 100vh;
             margin: 0;
@@ -119,12 +119,16 @@
             width: calc(100% - 24px);
             padding: 12px;
             margin-bottom: 15px;
-            border: 1px solid #747474;
+            border: 2px solid #747474;
             border-radius: 8px;
             box-sizing: border-box;
             font-size: 16px;
             padding-left: 40px;
             position: relative;
+        }
+        input:focus {
+            border: 2px solid #6a349f !important;
+            outline: none; 
         }
 
         .pass-form {
