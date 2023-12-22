@@ -43,10 +43,10 @@ window["q"+k] = `What is the output of the following code?
 ${FullCode(`
 x = True
 print(type(x))`)}`;
-window["o1"+k] = "<class 'str'>";
-window["o2"+k] = "<class 'int'>";
-window["o3"+k] = "<class 'bool'>";
-window["o4"+k] = "<class 'list'>";
+window["o1"+k] = "&lt;class 'str'&gt;";
+window["o2"+k] = "&lt;class 'int'&gt;";
+window["o3"+k] = "&lt;class 'bool'&gt;";
+window["o4"+k] = "&lt;class 'list'&gt;";
 window["ans"+k] = 3;
 
 totalLevel = k;

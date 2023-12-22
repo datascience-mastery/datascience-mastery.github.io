@@ -1,4 +1,4 @@
-//function
+//lamba
 k=0;
 k++;
 window["type"+k] = "word";

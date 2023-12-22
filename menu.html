@@ -253,24 +253,17 @@
                 width: 300px;
                 background-color: white;
                 border-radius: 10px;
-                overflow: hidden;
+                position: relative;
                 animation: logout-bg .4s ease-in-out 1;
             } @keyframes logout-bg {
                 0% {transform: scale(0); opacity: 0;}
                 100% {transform: scale(1); opacity: 1;}
             }
-            .log-ti {
-                text-align: center;
-                font-size: xx-large;
-                font-weight: 600;
-                margin: 10px 0;
-                color: #161616;
-            }
             .log-des {
                 text-align: center;
                 font-size: x-large;
                 font-weight: 100;
-                margin: 10px 0;
+                margin: 60px 0;
 
             }
             .log-btn-bg {
@@ -286,14 +279,20 @@
             } .log-btn:active {
                 opacity: .4;
             }
+            .char-img {
+                width: 250px;
+                height: 250px;
+                position: absolute;
+                top: -90%;
+            }
         </style>
         <div class="logout-con">
             <div class="logout-bg">
-                <div class="log-ti">LOGOUT</div>
+                <img src="res/image/character/sad/1.png" class="char-img">
                 <div class="log-des">Are you sure to logout?</div>
                 <div class="log-btn-bg">
-                    <div class="log-btn cancel-btn" style="background-color: #9b52d4;">Cancel</div>
-                    <div class="log-btn logout-btn" style="background-color: red;">Logout</div>
+                    <div class="log-btn cancel-btn" style="background-color: #9b52d4; border-radius: 0px 0px 0px 10px;">Cancel</div>
+                    <div class="log-btn logout-btn" style="background-color: red; border-radius: 0px 0px 10px 0px;">Logout</div>
                 </div>
             </div>
         </div>
@@ -398,6 +397,8 @@
         CheckForSync();
 
         $(".logout").click(function() {
+            var _num = Math.floor((Math.random() * 3) + 1);
+            $(".char-img").attr("src", "res/image/character/sad/" + _num + ".webp");
             setTimeout(() => {
                 $(".logout-con").css({display:'flex'});
             }, 400);

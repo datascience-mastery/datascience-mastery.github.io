@@ -77,8 +77,13 @@
         }
 
         .char-img {
-            width: 90px;
-            height: 90px;
+            width: 200px;
+            height: 200px;
+            animation: fadeIn 2s ease;
+        }
+        @keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
         }
 
         .btm {
@@ -328,7 +333,7 @@
     </style>
     <div class="mid">
         <div class="screen-bg">
-            <img src="res/image/character/1.svg" class="char-img">
+            <img class="char-img">
             <div class="screen-ti"></div>
         </div>
         <div class="navigation"></div>
@@ -370,9 +375,9 @@
 
         <script type="module">
             function charImg() {
-                var _num = Math.floor((Math.random() * 6) + 1);
+                var _num = Math.floor((Math.random() * 7) + 1);
                 console.log(_num);
-                $(".char-img").attr("src", "res/image/character/" + _num + ".svg");
+                $(".char-img").attr("src", "res/image/character/" + _num + ".webp");
             }
             charImg();
 

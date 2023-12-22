@@ -1,4 +1,4 @@
-//string
+//bool
 k=0;
 // k++;
 // window["type"+k] = "typing";
@@ -37,10 +37,10 @@ y = False
 print(type(x))
 print(type(y))`)}
 `;
-window["o1"+k] = "<class 'bool'> <class 'bool'>";
-window["o2"+k] = "<class 'int'> <class 'int'>";
-window["o3"+k] = "<class 'str'> <class 'str'>";
-window["o4"+k] = "<class 'bool'> <class 'int'>";
+window["o1"+k] = "&lt;class 'bool'&gt; &lt;class 'bool'&gt;";
+window["o2"+k] = "&lt;class 'int'&gt; &lt;class 'int'&gt;";
+window["o3"+k] = "&lt;class 'str'&gt; &lt;class 'str'&gt;";
+window["o4"+k] = "&lt;class 'bool'&gt; &lt;class 'int'&gt;";
 window["ans"+k] = 1;
 
 k++;

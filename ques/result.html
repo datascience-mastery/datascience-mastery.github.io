@@ -40,8 +40,8 @@ body {
     padding-top: 5vh;
 }
 .char-img {
-    width: 60vw; max-width: 200px;
-    height: 60vw; max-height: 200px;
+    width: 300px;
+    height: 300px;
     margin: 0 auto;
 }
 
@@ -104,7 +104,7 @@ else $("body").css({backgroundColor:'white'});
 
 <div class="content">
     <div class="img-bg">
-        <img src="../res/image/character/cow.svg" class="char-img">
+        <img src="../res/image/character/7.webp" class="char-img">
     </div>
     <style>
         .sh-bg {
@@ -215,17 +215,20 @@ maxLevel = dict['level'];
 crctDict = dict['crct'];
 console.log("Geting1");
 
+canShowConfetti = true;
 //check whether the key is already present
 if (crctDict.hasOwnProperty(`k${openedLevel}`)) {
     //is present
     console.log('Its present');
     previousCrctAns = crctDict["k"+openedLevel][0];
+    $("#old-wrong-num").text((totalAns - previousCrctAns));
+    canShowConfetti = false;
 } else {
     previousCrctAns = 0;
+    $("#old-wrong-num").text(0);
 }
 
 $("#old-crct-num").text(previousCrctAns);
-$("#old-wrong-num").text((totalAns - previousCrctAns));
 
 $("#new-crct-num").text(crctAns);
 $("#new-wrong-num").text(totalAns - crctAns);
@@ -246,17 +249,18 @@ appendAnim(newPercent);
 
 if (newPercent > oldPercent) {
     console.log("You improved");
-    $(".confetti").fadeIn(0);
-    $("#improve").text(newPercent - oldPercent);
-    $(".improve-bg").css({color:'#01a80c'});
-    $(".improve-bg").fadeIn();
+    if (canShowConfetti) {
+        $(".confetti").fadeIn(0);
+        $("#improve").text(newPercent - oldPercent);
+        $(".improve-bg").css({color:'#01a80c'});
+        $(".improve-bg").fadeIn();
+    }
 
     crctDict[`k${openedLevel}`] = [_crctAns, totalAns];
     dict['crct'] = crctDict;
     localStorage.setItem(openedType, JSON.stringify(dict));
 
     console.log("Saving6");
-    localStorage.canSync++;
 } else if (newPercent < oldPercent) {
     console.log("No improve");
     $("#worse").text(oldPercent - newPercent);
