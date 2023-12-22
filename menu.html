@@ -175,6 +175,7 @@
 
 <body>
     <div class="top-bg">
+        <img class="char-img2">
         <div class="bubble bub1"></div>
         <div class="bubble bub2"></div>
         <div class="logout">LOGOUT</div>
@@ -279,16 +280,24 @@
             } .log-btn:active {
                 opacity: .4;
             }
-            .char-img {
+            .char-img, .char-img2 {
                 width: 250px;
                 height: 250px;
                 position: absolute;
                 top: -90%;
+            } .char-img2 {
+                top: -10%;
+                left: -10%;
+                animation: fadeIn 2s cubic-bezier(0.65, 0.05, 0.36, 1);
+            } @keyframes fadeIn {
+                0% {opacity: 0; transform: scale(0);}
+                /* 30% {opacity: 0; transform: scale(0);} */
+                100% {opacity: 1; transform: scale(1);}
             }
         </style>
         <div class="logout-con">
             <div class="logout-bg">
-                <img src="res/image/character/sad/1.png" class="char-img">
+                <img class="char-img">
                 <div class="log-des">Are you sure to logout?</div>
                 <div class="log-btn-bg">
                     <div class="log-btn cancel-btn" style="background-color: #9b52d4; border-radius: 0px 0px 0px 10px;">Cancel</div>
@@ -298,6 +307,9 @@
         </div>
     </div>
     <script type="module">
+        var _num = Math.floor((Math.random() * 7) + 1);
+        $(".char-img2").attr("src", "res/image/character/" + _num + ".webp");
+
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
         import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";

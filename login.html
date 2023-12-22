@@ -1,126 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="res/jquery-3.6.2.min.js"></script>
-    <title>vLearn - Login</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2583427355566393"
-        crossorigin="anonymous"></script>
+    <title>Login</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
         @font-face {
-            font-family: berlin-bold;
-            src: url(res/font/din_bold.ttf);
+            font-family: SpaceGrotesk;
+            src: url(res/font/SpaceGrotesk.ttf);
         }
-
-        @font-face {
-            font-family: berlin-regular;
-            src: url(res/font/din_normal.ttf);
-        }
-
-        html {
-            overflow: hidden;
-        }
-
         body {
             width: 100vw;
             height: 100vh;
-            overflow: hidden;
             margin: 0;
-            font-family: berlin-bold;
-            color: #6f6f6f;
-            user-select: none;
-        }
-        
-        @keyframes fadeIn {
-        to {
-            opacity: 1;
-        }
-        }
-        @keyframes fadeOut {
-        to {
-            opacity: 0;
-        }
-        }
-
-        .top {
-            width: 100vw;
-            height: 20vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h1 {
-            padding-left: 5vw;
-            font-size: 12vw;
-            color: #9b52d4;
-        }
-
-        .mid {
-            height: 80vh;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .char-img-bg {
-            height: 25vh;
-        }
-
-        .char-img {
-            width: 200px;
-            height: 200px;
-            animation: fadeIn 2s ease;
-        }
-        @keyframes fadeIn {
-            0% {opacity: 0;}
-            100% {opacity: 1;}
-        }
-
-        .btm {
-            width: 100%;
-            height: 20vh;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .green-btn {
-            width: 45vw;
-            max-width: 300px;
-            height: 50px;
-            font-size: large;
-            background-color: #9b52d4;
+            overflow: hidden;
+            font-family: SpaceGrotesk;
             color: white;
-            border-radius: 10px;
-            box-shadow: 1px 3px #371452;
+        }
+        .full-con {
+            width: 100%;
+            height: 100%;
+            background-color: #9b52d4;
+            transition: all .4s ease-in-out;
+        }
+        .main-top {
+            width: 100%;
+            height: 30%;
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: space-around;
+            transition: all .4s ease-in-out;
+        }
+        .main-mid {
+            width: 100%;
+            height: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .4s ease-in-out;
+        }
+        .char-img {
+            width: 250px;
+            opacity: .7;
+        }
+
+        .main-btm {
+            width: 100%;
+            height: 30%;
+            transition: all .4s ease-in-out;
+        }
+        .main-top-ti {
+            font-size: x-large;
+        }
+        .main-top-des {
+            font-size: small;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button {
+            min-width: 200px;
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 50px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            background-color: #6a349f;
+            margin: 10px;
+            color: #fff;
+            border: none;
+        }
+
+        .login-button {
+            background: linear-gradient(135deg, #6a349f, #4a237f); /* Gradient for login button */
+        }
+
+        .signup-button {
+            background: linear-gradient(135deg, #8e44ad, #6c3483); /* Gradient for signup button */
+        }
+
+        .button:active {
+            filter: brightness(1.2); /* Adjust brightness on hover */
+        }
+
+        .login-con {
+            width: 100%;
+            height: 80vh;
+        }
+        .signin-con {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
         }
 
-        .green-btn:active {
-            box-shadow: 0px 0px #012201 !important;
-            transform: translate(1px, 3px);
+        .form-container {
+            width: 80%;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
-        .cancel {
+        input {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #747474;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .pass-form {
+            transition: all .4s ease-in-out;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+        .icon-img {
+            width: 20px;
+            height: 20px;
+            transform: translate(12px, -5px);
+        } .icon-img2 {
+            width: 20px;
+            height: 20px;
+            transform: translate(-15px, -5px);
+        }
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        /* .cancel {
                 text-align: center;
                 text-decoration: underline;
                 color: #9b52d4;
                 font-family: berlin-bold;
                 font-size: x-large;
                 transform: translateY(10px);
-        }
+        } */
 
         .create-ac:active {
             opacity: .4;
@@ -130,476 +168,260 @@
             opacity: .4;
         }
 
-        .input-bg {
-            width: 100vw;
-            padding: 2vh 0;
-            /* border: solid 1vw #c8c8c8; */
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .input-con {
-            width: 90vw;
-            max-width: 500px;
-        }
-
-        .input-txt {
-            font-size: 5vw;
-        }
-
-        .error-show {
-            width: 100%;
-            height: 20px;
-            font-size: large;
-            color: red;
-            font-family: berlin-regular;
-        }
-
-        .forgot-pass-bg {
-            width: 100%;
-            display: flex;
-            justify-content: end;
-        }
-
-        .forgot-pass {
-            width: fit-content;
-            font-size: large;
-            font-family: berlin-regular;
-            padding: 4vh 4vw;
-        }
-
-        .forgot-pass:active {
-            opacity: .6;
-        }
-
-        input:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-        }
-
-        .form {
-            width: 100%;
-            position: relative;
-            height: 70px;
-            overflow: hidden;
-            transition: all .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .form input {
-            width: 100%;
-            height: 100%;
-            color: #6f6f6f;
-            background: none;
-            appearance: none;
-            border: none;
-            padding-left: 22px;
-            font-family: berlin-bold;
-        }
-
-        input {
-            font-size: 5vw;
-        }
-
-        .form label {
-            padding-top: 15px;
+        .password-toggle {
             position: absolute;
-            bottom: 0;
-            color: rgb(255, 0, 0);
-            left: 0%;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            padding-left: 20px;
-            font-size: 25px;
-            border-bottom: 4px solid #6f6f6f;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
         }
 
-        .name-sectioin {
-            background: #9b52d4;
-        }
-
-        input:-internal-autofill-selected {
-            background-color: #9b52d4 !important;
-        }
-
-        .form label::after {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            border-bottom: 4px solid #9b52d4;
-            left: 0;
-            bottom: 0;
-            transform: translateX(-100%);
-            transition: all 0.3s ease;
-        }
-
-        .content-name {
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            font-size: 20px;
-            transition: all 0.3s ease;
-            color: #9b52d4;
-        }
-
-        .form input:focus+.label-name .content-name,
-        .form input:valid+.label-name .content-name {
-            transform: translateY(-180%);
+        .forgot-password {
+            margin-top: 15px;
             font-size: 14px;
+            color: #4e4e4e; /* Changed color to a different one */
+            text-decoration: underline;
+            transition: color 0.3s ease-in-out;
         }
 
-        .form input:focus+.label-name::after,
-        .form input:valid+.label-name::after {
-            transform: translateX(0%);
+        .forgot-password:active {
+            color: #171717; /* Changed hover color to a different one */
         }
-
-        @media (min-width: 480px) {
-            /*Mobile*/
-
-        }
-
-        @media (min-width: 768px) {
-
-            /*Tablet*/
-            h1 {
-                font-size: 50px;
-            }
-
-            input {
-                font-size: 25px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-
-            /*Laptops*/
-            h1 {
-                font-size: 60px;
-            }
-
-            input {
-                font-size: 30px;
-            }
+        .error-txt {
+            width: 100%;
+            height: 25px;
+            color: red;
         }
     </style>
 </head>
-
 <body>
-    <script>
-        function checkMode() {
-            if (localStorage.darkMode == null) {
-                $('body').css({ backgroundColor: 'white' });
-            } else {
-                $('body').css({ backgroundColor: 'black' });
-            }
-        }
-        checkMode();
-    </script>
-    <div class="top">
-        <h1>Data Science</h1>
-    </div>
-    <style>
-        .screen-bg {
-            width: 100%;
-            height: 35%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-        .screen-ti {
-            width: 138px;
-            font-size: x-large;
-            color: #000;
-        }
-        .navigation {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-            }
-
-        .navigation-point {
-            width: 10px;
-            height: 10px;
-            background-color: #333;
-            margin: 0 5px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-    </style>
-    <div class="mid">
-        <div class="screen-bg">
-            <img class="char-img">
-            <div class="screen-ti"></div>
+    <div class="full-con">
+        <div class="main-top">
+            <div class="main-top-ti">Data Science Mastery</div>
+            <div class="main-top-des">Learn data science for free at your fingertips</div>
         </div>
-        <div class="navigation"></div>
-        
-        <div class="input-bg">
-            <form class="input-con">
-                <div class="form email-form">
-                    <div class="name-sectioin"></div>
-                    <input type="email" name="_email" autocomplete="off" id="email" required>
-                    <label for="_email" class="label-name">
-                        <span class="content-name">Email</span>
-                    </label>
+        <div class="main-mid">
+            <img src="res/image/character/3.webp" class="char-img">
+        </div>
+        <div class="main-btm">
+            <div class="button-container">
+                <div class="button login-button">Let's start</div>
+            </div>
+        </div>
+    </div>
+    <div class="login-con">
+        <div class="signin-con">
+            <form class="form-container">
+                <div style="position:relative">
+                    <i class="input-icon"><img src="res/image/email.svg" class="icon-img"></i>
+                    <input type="email" id="email" placeholder="Email">
                 </div>
-
-                <div class="form pass-form">
-                    <div class="name-sectioin"></div>
-                    <input type="password" name="_email" id="password" required autocomplete="false">
-                    <label for="_email" class="label-name">
-                        <span class="content-name">Password</span>
-                    </label>
+                <div class="pass-form" style="position:relative">
+                    <i class="input-icon"><img src="res/image/lock.svg" class="icon-img"></i>
+                    <input type="password" id="password" placeholder="Password">
+                    <i class="password-toggle" onclick="togglePasswordVisibility('password')"><img src="res/image/eye-open.svg" class="icon-img2"></i>
                 </div>
-
-                <!-- <div class="input-con pass-con">
-                <div class="input-txt">Password</div>
-                <input type="password" name="pass" id="password">
-            </div> -->
-                <div class="forgot-pass-bg">
-                    <div class="forgot-pass">Forgot password?</div>
-                </div>
-                <div class="error-show"></div>
+                <div class="error-txt"></div>
+                <div class="button login-btn">Login</div>
+                <div class="button create-ac">Create an Account</div>
+                <div class="button reset-btn" style="display: none; background: linear-gradient(135deg, #ad4444, #833434);">Reset</div>
+                <div class="button cancel" style="display: none;">Cancel</div>
+                <!-- <div class="cancel" style="display: none;">Cancel</div> -->
+                <div class="forgot-password" onclick="showForgotPassword()">Forgot Password?</div>
             </form>
         </div>
-        <div class="btm">
-            <div class="green-btn login-btn">LOGIN</div>
-            <div class="green-btn create-ac">SIGNUP</div>
-            <div class="green-btn reset-btn" style="display: none;">RESET</div>
-            <div class="cancel" style="display: none;">Cancel</div>
-        </div>
-
-        <script type="module">
-            function charImg() {
-                var _num = Math.floor((Math.random() * 7) + 1);
-                console.log(_num);
-                $(".char-img").attr("src", "res/image/character/" + _num + ".webp");
+    </div>
+    <script>
+        function togglePasswordVisibility(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const passwordToggle = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordToggle.innerHTML = '<img src="res/image/eye-close.svg" class="icon-img2">'; // Eye icon closed
+            } else {
+                passwordInput.type = 'password';
+                passwordToggle.innerHTML = '<img src="res/image/eye-open.svg" class="icon-img2">'; // Eye icon open
             }
-            charImg();
+        }
 
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-            import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-            import { getDatabase, ref, onValue, set, get, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-
-            // Your web app's Firebase configuration
-            const firebaseConfig = {
-                apiKey: "AIzaSyA46UoF4p21czsWJ_bIE3_0p8JToLBS0-c",
-                authDomain: "data-science-c75a5.firebaseapp.com",
-                projectId: "data-science-c75a5",
-                storageBucket: "data-science-c75a5.appspot.com",
-                messagingSenderId: "378209421984",
-                appId: "1:378209421984:web:9183a9d0379741675a17c5",
-                databaseURL: "https://data-science-c75a5-default-rtdb.asia-southeast1.firebasedatabase.app"
-            };
-
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const auth = getAuth();
-
-            auth.onAuthStateChanged((user) => {
-                if (user) {
-                    // User logged in already or has just logged in.
-                    console.log(user.uid);
-                } else {
-                    // User not logged in or has just logged out.
-                    console.log("User logged out");
-
-                }
-            });
-
-            function checkError(error) {
-                if (error == "auth/email-already-in-use") {
-                    $(".error-show").text("*Email is already in use!");
-                } else if (error == "auth/weak-password") {
-                    $(".error-show").text("*Password should be more than 6 character!");
-                } else if (error == "auth/invalid-email") {
-                    $(".error-show").text("*Email is invalid!");
-                } else if (error == "auth/network-request-failed") {
-                    $(".error-show").text("*No internet connection!");
-                } else if (error == "auth/wrong-password") {
-                    $(".error-show").text("*Wrong password!");
-                } else if (error == "auth/user-not-found") {
-                    $(".error-show").text("*User not found!");
-                } else if (error == "auth/network-request-failed") {
-                    $(".error-show").text("*No internet connection!");
-                } else {
-                    $(".error-show").text("*Unknown error occured!");
-                }
-                console.log(error);
-            }
-
-            $(".create-ac").click(function () {
-                $(".error-show").empty();
-                var _email = document.getElementById("email").value;
-                var password = document.getElementById("password").value;
-
-                createUserWithEmailAndPassword(auth, _email, password)
-                    .then((userCredential) => {
-                        // Signed in 
-                        const user = userCredential.user;
-                        localStorage.uid = user.uid;
-                        localStorage.email = user.email;
-                        const db = getDatabase();
-                        console.log(db);
-                        location.replace("menu.html");
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        checkError(errorCode);
-                    });
-            });
-            var loginClick = false;
-            $(".login-btn").click(function () {
-                $(".error-show").empty();
-                // $(this).text("Please wait...");
-
-                if (loginClick) {return}
-
-                loginClick=true;
-                var _email = document.getElementById("email").value;
-                var password = document.getElementById("password").value;
-                var langDictSynced = false;
-                signInWithEmailAndPassword(auth, _email, password)
-                    .then((userCredential) => {
-                        // Signed in 
-                        const user = userCredential.user;
-                        console.log("Logged in");
-                        localStorage.uid = user.uid;
-                        localStorage.email = user.email;
-                        const dbRef = ref(getDatabase());
-                        get(child(dbRef, `users/${localStorage.uid}/`)).then((snapshot) => {
-                            if (snapshot.exists()) {
-                                console.log(snapshot.val());
-                                var retrieved = snapshot.val();
-                                console.log(Object.keys(retrieved).length);
-                                for (var i in retrieved) {
-                                    console.log('crct', retrieved[i]['x']['crct']);
-                                    var dict = {'level': retrieved[i]['x']['level'], 'crct': retrieved[i]['x']['crct']}
-                                    localStorage.setItem(i, JSON.stringify(dict));
-                                }
-                                location.replace("menu.html");
-                            } else {
-                                console.log("No data available");
-                                location.replace("menu.html");
-                            }
-                        }).catch((error) => {
-                            const errorCode = error.code;
-                            console.error(errorCode);
-                        });
-
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        checkError(errorCode);
-                    });
-            });
-
-            $(".forgot-pass").click(function () {
+        function showForgotPassword() {
+            setTimeout(() => {
                 $(".pass-form").css({ transform: 'translateX(100%)', opacity: '0' });
                 $(".login-btn, .create-ac").fadeOut(0);
                 $(".reset-btn, .cancel").fadeIn(0);
-            });
-            $(".cancel").click(function () {
-                $(".pass-form").css({ transform: 'translateX(0%)', opacity: '1' });
-                $(".login-btn, .create-ac").fadeIn(0);
-                $(".reset-btn, .cancel").fadeOut(0);
-            });
+            }, 200);
+        }
+    </script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getDatabase, ref, onValue, set, get, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-            var resetClick = false;
-            $(".reset-btn").click(function () {
-                if (resetClick) {return}
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA46UoF4p21czsWJ_bIE3_0p8JToLBS0-c",
+            authDomain: "data-science-c75a5.firebaseapp.com",
+            projectId: "data-science-c75a5",
+            storageBucket: "data-science-c75a5.appspot.com",
+            messagingSenderId: "378209421984",
+            appId: "1:378209421984:web:9183a9d0379741675a17c5",
+            databaseURL: "https://data-science-c75a5-default-rtdb.asia-southeast1.firebasedatabase.app"
+        };
 
-                resetClick = true;
-                var _email = document.getElementById("email").value;
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
 
-                const auth = getAuth();
-                sendPasswordResetEmail(auth, _email)
-                    .then(() => {
-                        // Password reset email sent!
-                        console.log("Password reset sent!");
-                        resetClick = false;
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        console.log(errorCode);
-                        if (errorCode == "auth/user-not-found") {
-                            $(".error-show").text("*User not found!");
-                        } else if (errorCode == "auth/missing-email") {
-                            $(".error-show").text("*Email is missing!");
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // User logged in already or has just logged in.
+                console.log(user.uid);
+            } else {
+                // User not logged in or has just logged out.
+                console.log("User logged out");
+
+            }
+        });
+
+        function HideMain() {
+            $(".full-con").css({height:'20vh', borderRadius: '0px 0px 100px 0'});
+            $(".main-top, .main-mid, .main-btm").css({opacity:'0'});
+            setTimeout(() => {
+                $(".main-mid, .main-btm").css({visibility:'hidden'});
+                $(".main-top").css({height:'100%' ,opacity:'1'});
+                $(".main-top-des").fadeOut(0);
+            }, 400);
+        }
+
+        $('.login-button').click(function() {
+            HideMain();
+        });
+
+        function checkError(error) {
+            if (error == "auth/email-already-in-use") {
+                $(".error-txt").text("*Email is already in use!");
+            } else if (error == "auth/weak-password") {
+                $(".error-txt").text("*Password should be more than 6 character!");
+            } else if (error == "auth/invalid-email") {
+                $(".error-txt").text("*Email is invalid!");
+            } else if (error == "auth/network-request-failed") {
+                $(".error-txt").text("*No internet connection!");
+            } else if (error == "auth/wrong-password") {
+                $(".error-txt").text("*Wrong password!");
+            } else if (error == "auth/user-not-found") {
+                $(".error-txt").text("*User not found!");
+            } else if (error == "auth/network-request-failed") {
+                $(".error-txt").text("*No internet connection!");
+            } else {
+                $(".error-txt").text("*Unknown error occured!");
+            }
+            console.log(error);
+        }
+
+        $(".create-ac").click(function () {
+            $(".error-txt").empty();
+            var _email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            createUserWithEmailAndPassword(auth, _email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    localStorage.uid = user.uid;
+                    localStorage.email = user.email;
+                    const db = getDatabase();
+                    console.log(db);
+                    location.replace("menu.html");
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    checkError(errorCode);
+                });
+        });
+        var loginClick = false;
+        $(".login-btn").click(function () {
+            $(".error-txt").empty();
+            // $(this).text("Please wait...");
+
+            if (loginClick) {return}
+
+            loginClick=true;
+            var _email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var langDictSynced = false;
+            signInWithEmailAndPassword(auth, _email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    console.log("Logged in");
+                    localStorage.uid = user.uid;
+                    localStorage.email = user.email;
+                    const dbRef = ref(getDatabase());
+                    get(child(dbRef, `users/${localStorage.uid}/`)).then((snapshot) => {
+                        if (snapshot.exists()) {
+                            console.log(snapshot.val());
+                            var retrieved = snapshot.val();
+                            console.log(Object.keys(retrieved).length);
+                            for (var i in retrieved) {
+                                console.log('crct', retrieved[i]['x']['crct']);
+                                var dict = {'level': retrieved[i]['x']['level'], 'crct': retrieved[i]['x']['crct']}
+                                localStorage.setItem(i, JSON.stringify(dict));
+                            }
+                            location.replace("menu.html");
                         } else {
-                            $(".error-show").text("*Unknown error occured!");
+                            console.log("No data available");
+                            location.replace("menu.html");
                         }
-                        resetClick = false;
+                    }).catch((error) => {
+                        const errorCode = error.code;
+                        console.error(errorCode);
                     });
 
-            });
-
-            var message = [
-                'All Data Science Course At One Place For Free!',
-                'Courses Included Python, ML, DL, Maths And Many More...',
-                'Python Libraries Like Numpy, Pandas And SkLearn',
-                'Dedicated Quiz For Every Courses',
-            ]
-            var count=0;
-            function RevealLetter(index) {
-                if (Object.keys(message).length == count) {
-                    count=0;
-                }
-                const screenTiElement = document.querySelector('.screen-ti');
-                const textContent = message[count];
-                screenTiElement.textContent = '';
-
-                const charSpans = [];
-                var totalAnimTime = 0;
-
-                for (let i = 0; i < textContent.length; i++) {
-                    const charSpan = document.createElement('span');
-                    charSpan.textContent = textContent[i];
-                    charSpan.style.opacity = '0';
-                    charSpan.style.animation = `fadeIn 0.5s ${i * 0.05}s forwards, fadeOut 0.5s ${i * 0.05 + 3}s forwards`;
-                    totalAnimTime=(i * 0.05 + 3);
-                    charSpans.push(charSpan);
-                    screenTiElement.appendChild(charSpan);
-                }
-
-                let animationCount = 0;
-
-                function onAnimationEnd() {
-                    animationCount++;
-
-                    if (animationCount === charSpans.length) {
-                        setTimeout(() => {
-                            RevealLetter();
-                            console.log('totalAnimTime',totalAnimTime);
-                        }, (totalAnimTime*700));
-                    }
-                }
-
-                function finished() {
-                    console.log('Animation finished!');
-                    // Add your code to execute when the animation is finished
-                }
-
-                charSpans.forEach(charSpan => {
-                    charSpan.addEventListener('animationend', onAnimationEnd);
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    checkError(errorCode);
                 });
-                count+=1;
-            }
+        });
 
-            
-            RevealLetter()
+        $(".cancel").click(function () {
+            $(".pass-form").css({ transform: 'translateX(0%)', opacity: '1' });
+            $(".login-btn, .create-ac").fadeIn(0);
+            $(".reset-btn, .cancel").fadeOut(0);
+        });
 
+        var resetClick = false;
+        $(".reset-btn").click(function () {
+            if (resetClick) {return}
 
+            resetClick = true;
+            var _email = document.getElementById("email").value;
 
-        </script>
+            const auth = getAuth();
+            sendPasswordResetEmail(auth, _email)
+                .then(() => {
+                    // Password reset email sent!
+                    console.log("Password reset sent!");
+                    resetClick = false;
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode);
+                    if (errorCode == "auth/user-not-found") {
+                        $(".error-txt").text("*User not found!");
+                    } else if (errorCode == "auth/missing-email") {
+                        $(".error-txt").text("*Email is missing!");
+                    } else {
+                        $(".error-txt").text("*Unknown error occured!");
+                    }
+                    resetClick = false;
+                });
+
+        });
+    </script>
 </body>
-
 </html>
