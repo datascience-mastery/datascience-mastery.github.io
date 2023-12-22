@@ -61,6 +61,8 @@ window["msg"+k] = `
 <h3>Replace the character ${WordCode('H')} with a ${WordCode('J')}</h3>
 txt = "Hello World"<br>
 txt = txt.replace("${Typing('H')}", "${Typing('J')}")
+
+${Note(`Remember to make it capital letter. Python is case-sensitive.`)}
 `; //message
 
 k++;
