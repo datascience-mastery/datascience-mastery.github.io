@@ -41,7 +41,6 @@ function Note(code) {
     return `<p class='note-txt'><strong>Note:</strong>${code}</p>`
 }
 
-totalInput=0;
 function SetWidth(id,code) {
     setTimeout(() => {
         console.log("#in"+id);
@@ -53,13 +52,16 @@ function SetWidth(id,code) {
     }, 100);
 }
 
+fullTotal = 0;
 function Typing(code) {
     if (window['inputAns'+k] == null) {
         window['inputAns'+k] = [];
+        window['totalInput'+k] = 0;
     }
     console.log('k',k)
-    totalInput++;
+    window['totalInput'+k]++;
+    fullTotal++;
     window['inputAns'+k].push(code);
-    SetWidth(totalInput,code);
-    return `<input type='text' id='in${totalInput}'>`;
+    SetWidth(fullTotal,code)
+    return `<input type='text' id='in${fullTotal}' class='in${window['totalInput'+k]}'>`;
 }
