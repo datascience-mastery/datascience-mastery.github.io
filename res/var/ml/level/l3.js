@@ -1,5 +1,5 @@
+//strnd dvtn and variance
 k=0;
-
 k++;
 window["type"+k] = "message";
 window["ti"+k] = "Standard Deviation"; //title
