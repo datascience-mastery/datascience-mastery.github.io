@@ -57,7 +57,7 @@ k++;
 window["type"+k] = "word";
 window["q"+k] = "What does it mean when the probability predicted by logistic regression is close to 0.5?";
 window["o1"+k] = "The model is uncertain about the prediction";
-window["o2"+k] = "The model is uncertain about the prediction";
+window["o2"+k] = "The event is highly likely to occur";
 window["o3"+k] = "The event is highly unlikely to occur";
 window["o4"+k] = "The model is overfitting";
 window["ans"+k] = 1;
