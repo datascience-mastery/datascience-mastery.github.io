@@ -1,0 +1,12 @@
+$("h1").text('Deep Learning');
+Heading("Intro");
+Append_('Intro to Deep Learning', ['What is DL?', 'Shallow & Deep Neural Network', 'How Does DL Work']);
+Append_('Single Layer Perceptron', ['What is Single Layer Perceptron?', 'Code Implementation']);
+Append_('Multi Layer Perceptron', ['What is Multi Layer Perceptron?', 'Code Implementation']);
+Append_('Type & Application of Deep Learning', ['Type of DL', 'Application of DL']);
+Append_('Artificial neural networks', ['Artificial neural networks', 'Difference between ML & DL']);
+Append_('Activation Function', ['Type of Activation Function']);
+Heading("Alogithms");
+Append_('Feedforward neural networks (FNN)', []);
+Append_('Convolution Neural Network (CNN)', ['CNN Architecture', 'How Convolutional Layers works', 'Layers used to build ConvNets']);
+Append_('Recurrent Neural Network (RNN)', ['What is RNN?', 'How RNN differs from FNN?', 'Recurrent Neuron and RNN Unfolding', 'Types of RNN', 'RNN Architecture', 'How does RNN work?', 'Backpropagation Through Time (BPTT)', 'Issues of Standard RNNs', 'Training through RNN', 'Advantages and Disadvantages of RNN', 'Applications of RNN', 'Variation Of RNN', 'Bidirectional Neural Network (BiNN)', 'Long Short-Term Memory (LSTM)', 'Diff b/w RNN and Simple Neural Network', 'Code Implementation']);

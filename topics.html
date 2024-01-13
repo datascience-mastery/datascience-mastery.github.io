@@ -476,74 +476,7 @@
                 parent.location='ques/ques.html';
             }, 400);
         }
-        if (openedType == 'python') {
-            $("h1").text('Python');
-            Heading('Intro');
-            Append_('Intro to Python', ['About Python', 'Python Syntax', 'Python Indentation', 'Comments']);
-            Heading('Variables & Data types');
-            Append_('Variables', ['Variables']);
-            Append_('Data Types', ['Python Data Types', 'Most Used Data Types', 'Getting the Data types']);
-            Append_('Numbers', ['Python Numbers', 'int', 'float', 'complex', 'Type Conversion']);
-            Append_('String', ['Python Strings', 'Multiline Strings', 'Strings are arrays', 'String Length', 'Slicing', 'Slice from the start', 'Slice to the end', 'Negative Indexing', 'Modify Strings', 'String Format', 'Escape Character']);
-            Append_('Booleans', ['Most Values are True', 'Some Values are False']);
-            Append_('Lists', ['List items', 'List Length', 'List Items - Data types', 'Data type of List', 'Python Collections(Arrays)', 'Access Items', 'Change Item Value', 'Change List items', 'Insert Items', 'Add List Items', 'Remove List Items', 'Sort Lists', 'Copy Lists', 'Join Lists', 'List Methods']);
-            Append_('Tuples', ['Tuple Items', 'Tuple Length', 'Tuple Items - Data Types', 'Access Tuple Items', 'Update Tuples', 'Add Items', 'Remove Items', 'Unpack Tuples', 'Join Tuples', 'Tuple Methods']);
-            Append_('Sets', ['Set Items', 'Length', 'Set Items - Data Types', 'type()', 'Access Set Items', 'Change Items', 'Add Items', 'Add Sets', 'Add Any Iterable', 'Remove Set Items', 'Join Sets', 'Set Methods']);
-            Append_('Dictionaries', ['Dictionary Items', 'Ordered or Unordered?', 'Changeable', 'Duplicates Not Allowed', 'Length', 'Dictionary Items - Data Types', 'type()', 'dict() Constructor', 'Access Dictionary Items', 'Get Keys', 'Get Values', 'Get Items', 'Check if Key Exists', 'Change Values', 'Update Dictionary', 'Add Dictionary Items', 'Remove Dictionary Items', 'Copy a Dictionary', 'Nested Dictionaries', 'Dictionary Methods']);
-            Heading('Operators');
-            Append_('Operators', ['Basic Operator', 'All operators']);
-            Heading('Conditional Statement');
-            Append_('If...Else', ['Indentation', 'If ... Else', 'Elif', 'Else', 'Short Hand If', 'Short Hand If ... Else', 'And', 'Or', 'Not', 'Nested If', 'The pass Statement']);
-            Heading('Loops');
-            Append_('While Loop', ['break', 'continue', 'else Statement']);
-            Append_('For Loop', ['Looping Through a String', 'break', 'continue', 'range() Function', 'Else in For Loop', 'Nested Loops', 'pass Statement']);
-            Heading('Functions');
-            Append_('Function', ['Creating a Function', 'Calling a Function', 'Arguments', 'Parameters or Arguments?', 'Number of Arguments', 'Arbitrary Arguments, *args', 'Keyword Arguments', 'Arbitrary Keyword Arguments, **kwargs', 'Default Parameter Value', 'Passing a List as an Argument', 'Return Values', 'pass Statement', 'Recursion']);
-            Append_('Lambda', ['Why Use Lambda Functions?']);
-        } else if (openedType == 'ml') {
-            $("h1").text('Machine Learning');
-            Append_('Intro to Machine Learning', ['What is Machine Learning?', 'Where To Start?', 'Data Set', 'Data Types']);
-            Append_('Mean Median Mode', ['Mean', 'Median', 'Mode']);
-            Append_('Standard Deviation', ['Standard Deviation', 'Variance', 'Symbols']);
-            Append_('Percentile', ['Percentiles',]);
-            Append_('Data Distribution', ['How Can we Get Big Data Sets?', 'Histogram', 'Big Data Distributions', 'Normal Data Distribution']);
-            Heading("Let's start");
-            Append_('What is Machine Learning?', ['Machine Learning lifecycle', 'Types of Machine Learning', 'Need for machine learning']);
-            Append_('Best Python libraries for Machine Learning?', ['Best Python libraries for Machine Learning', 'Difference Between ML and AI', 'General steps to follow in a ML Problem']);
-            Heading("Data Preprocessing");
-            Append_('Introduction to Data in Machine Learning', ['How do we split data in ML?',]);
-            Append_('Understanding Data Processing', ['Understanding Data Processing',]);
-            Append_('Create Test DataSets using Sklearn', ['Create Test DataSets using Sklearn', 'Benefit of Scikit-learn test datasets']);
-            Append_('Data Cleaning', ['Data cleaning', 'Steps involved in data cleaning', '']);
-            Append_('One Hot Encoding', ['One Hot Encoding in ML', 'advantages', 'disadvantages', 'One Hot Encoding Examples', 'Using Pandas library']);
-            Append_('Dummy variable trap in Regression Models', ['Dummy variable trap in Regression Models',]);
-            Append_('Exploratory Data Analysis (EDA)', ['Types of EDA', 'Using Python Libraries']);
-            Append_('Feature Scaling', ['Feature Scaling',]);
-            Append_('Feature Engineering', ['Why use Feature Scaling?', 'Absolute Maximum Scaling', 'Min-Max Scaling', 'Normalization', 'Standardization', 'Robust Scaling', '']);
-            Append_('Label Encoding', ['Label Encoding', 'Example of Label Encoding', 'Limitation', 'Example']);
-            Append_('Handling Imbalanced Data', ['SMOTE - Oversampling', 'NearMiss Algorithm – Undersampling', 'Implement in code']);
-            Heading("Algorithm");
-            Append_('What is Algorithm in ML?', ['Algorithm in ML', 'Supervised Learning Algorithms', 'Unsupervised Learning Algorithms', 'Reinforcement Learning Algorithms']);
-            Append_('Linear Regression', ['What is Linear Regression?', 'Simple Linear Regression', 'What is the best fit line?', 'Gradient Descent', 'Evaluation Metrics', 'Assumptions of Linear Regression', 'Hypothesis in Linear Regression', 'Multiple Linear Regression', 'Multicollinearity', 'Overfitting and Underfitting', 'Bias Variance Tradeoff', 'Coding']);
-            Append_('Logistics Regression', ['What is Logistic Regression?', 'Types of Logistic Regression', 'How does Logistic Regression work?', 'Logistic Function', 'Cost Function', 'Log Loss', 'Coding', 'Model Evaluation using Confusion Matrix', 'Visualizing Confusion Matrix', 'ROC Curve', 'Advantages of Logistics Regression', 'Disadvantages of Logistics Regression', '']);
-            Append_('Polynomial Regression', ['Polynomial Regression', 'How Does It Handle Non-Linear Data?', 'Linear Regression Vs. Polynomial Regression', 'Polynomial Regression With One Variable', 'Playing With a Polynomial Degree', 'Polynomial Regression With Multiple columns']);
-            Append_('K Neareast Neighbour (KNN)', ['Intuition Behind KNN Algorithm', 'Distance Metrics Used in KNN Algorithm', 'How to choose the value of k', 'Workings of KNN', 'Applications of the KNN', 'Advantages & Disadvantages', 'Implementation using sklearn']);
-            Append_('Decision Tree', ['Decision Tree Terminologies', 'Example of Decision Tree', 'Decision Tree Assumptions', 'Entropy', 'Information Gain', 'When to Stop Splitting?', 'Pruning', 'Code Implementation']);
-        } else if (openedType == 'dl') {
-            $("h1").text('Deep Learning');
-            Heading("Intro");
-            Append_('Intro to Deep Learning', ['What is DL?', 'Shallow & Deep Neural Network', 'How Does DL Work']);
-            Append_('Single Layer Perceptron', ['What is Single Layer Perceptron?', 'Code Implementation']);
-            Append_('Multi Layer Perceptron', ['What is Multi Layer Perceptron?', 'Code Implementation']);
-            Append_('Type & Application of Deep Learning', ['Type of DL', 'Application of DL']);
-            Append_('Artificial neural networks', ['Artificial neural networks', 'Difference between ML & DL']);
-            Append_('Activation Function', ['Type of Activation Function']);
-            Heading("Alogithms");
-            Append_('Feedforward neural networks (FNN)', []);
-            Append_('Convolution Neural Network (CNN)', ['CNN Architecture', 'How Convolutional Layers works', 'Layers used to build ConvNets']);
-            Append_('Recurrent Neural Network (RNN)', ['What is RNN?', 'How RNN differs from Feedforward Neural Network?', 'Recurrent Neuron and RNN Unfolding', 'Types of RNN', 'RNN Architecture', 'How does RNN work?', 'Backpropagation Through Time (BPTT)', 'Issues of Standard RNNs', 'Training through RNN', 'Advantages and Disadvantages of RNN', 'Applications of Recurrent Neural Network', 'Variation Of RNN', 'Bidirectional Neural Network (BiNN)', 'Long Short-Term Memory (LSTM)', 'Difference between RNN and Simple Neural Network', 'Code Implementation']);
-        
-        }
+        $('body').prepend(`<script src="res/append/${openedType}.js">`)
         
         totalMainLevel = index;
         openedType = localStorage.openedType;
