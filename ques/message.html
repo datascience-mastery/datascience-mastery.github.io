@@ -273,6 +273,7 @@
             font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
             color: white;
             background-color: black;
+            margin-bottom: 15px;
         }
         .note-txt {
             background-color: #ffffcc;
@@ -343,7 +344,7 @@
             $(".prev-btn").css({opacity:.3});
         }
 
-        $(".ti").text(window["ti" + window.parent.chapter]);
+        $(".ti").html(window["ti" + window.parent.chapter]);
         $(".msg").html(window["msg" + window.parent.chapter]);
 
 

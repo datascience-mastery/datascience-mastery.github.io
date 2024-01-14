@@ -58,22 +58,38 @@ ${FullCode(`numpy.array(object, dtype = None, copy = True, order = None, subok =
 
 k++;
 window["type"+k] = "message";
-window["ti"+k] = "Operations using NumPy"; //title
+window["ti"+k] = "Examples"; //title
 window["msg"+k] = `
-<p>Using NumPy, a developer can perform the following operations −</p>
-<ul>
-<li><p>Mathematical and logical operations on arrays.</p></li>
-<li><p>Fourier transforms and routines for shape manipulation.</p></li>
-<li><p>Operations related to linear algebra. NumPy has in-built functions for linear algebra and random number generation.</p></li>
-</ul>
-`; //message
-
-k++;
-window["type"+k] = "message";
-window["ti"+k] = "NumPy – A Replacement for MatLab"; //title
-window["msg"+k] = `
-<p>NumPy is often used along with packages like <b>SciPy</b> (Scientific Python) and <b>Mat−plotlib</b> (plotting library). This combination is widely used as a replacement for MatLab, a popular platform for technical computing. However, Python alternative to MatLab is now seen as a more modern and complete programming language.</p>
-<p>It is open source, which is an added advantage of NumPy.</p>
+<h2>Example 1</h2>
+${FullCode(`
+import numpy as np 
+a = np.array([1,2,3]) 
+print(a)`)}
+${OutputCode(`[1, 2, 3]`)}
+<h2>Example 2</h2>
+${FullCode(`
+# more than one dimensions 
+import numpy as np 
+a = np.array([[1, 2], [3, 4]]) 
+print(a)`)}
+${OutputCode(`
+[[1, 2] 
+ [3, 4]]`)}
+<h2>Example 3</h2>
+${FullCode(`
+# minimum dimensions 
+import numpy as np 
+a = np.array([1, 2, 3,4,5], ndmin = 2) 
+print(a)`)}
+${OutputCode(`[[1, 2, 3, 4, 5]]`)}
+<h2>Example 4</h2>
+${FullCode(`
+# dtype parameter 
+import numpy as np 
+a = np.array([1, 2, 3], dtype = complex) 
+print(a)`)}
+${OutputCode(`[ 1.+0.j,  2.+0.j,  3.+0.j]`)}
+<p>The <b>ndarray</b> object consists of contiguous one-dimensional segment of computer memory, combined with an indexing scheme that maps each item to a location in the memory block. The memory block holds the elements in a row-major order (C style) or a column-major order (FORTRAN or MatLab style).</p>
 `; //message
 
 totalLevel = k;

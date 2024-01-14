@@ -8,15 +8,15 @@
     <title>Login</title>
     <style>
         @font-face {
-            font-family: SpaceGrotesk;
-            src: url(res/font/SpaceGrotesk.ttf);
+            font-family: din_normal;
+            src: url(res/font/din_normal.ttf);
         }
         body, html {
             width: 100vw;
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            font-family: SpaceGrotesk;
+            font-family: din_normal;
             color: white;
             user-select: none;
         }
@@ -54,10 +54,11 @@
             transition: all .4s ease-in-out;
         }
         .main-top-ti {
-            font-size: x-large;
+            font-size: 33px;
         }
         .main-top-des {
-            font-size: small;
+            font-size: 20px;
+            text-align: center;
         }
 
         .button-container {
@@ -185,7 +186,7 @@
     <div class="full-con">
         <div class="main-top">
             <div class="main-top-ti">Data Science Mastery</div>
-            <div class="main-top-des">Learn data science for free at your fingertips</div>
+            <div class="main-top-des">Learn <span style="color: #feff00; font-weight: 600;">data science</span> for <span style="color: #feff00; font-weight: 600;">FREE</span> at your fingertips</div>
         </div>
         <div class="main-mid">
             <img src="res/image/character/3.webp" class="char-img">
@@ -269,7 +270,6 @@
             } else {
                 // User not logged in or has just logged out.
                 console.log("User logged out");
-
             }
         });
 
@@ -301,27 +301,6 @@
         $('.login-button').click(function() {
             HideMain();
         });
-
-        function checkError(error) {
-            if (error == "auth/email-already-in-use") {
-                $(".error-txt").text("*Email is already in use!");
-            } else if (error == "auth/weak-password") {
-                $(".error-txt").text("*Password should be more than 6 character!");
-            } else if (error == "auth/invalid-email") {
-                $(".error-txt").text("*Email is invalid!");
-            } else if (error == "auth/network-request-failed") {
-                $(".error-txt").text("*No internet connection!");
-            } else if (error == "auth/wrong-password") {
-                $(".error-txt").text("*Wrong password!");
-            } else if (error == "auth/user-not-found") {
-                $(".error-txt").text("*User not found!");
-            } else if (error == "auth/network-request-failed") {
-                $(".error-txt").text("*No internet connection!");
-            } else {
-                $(".error-txt").text("*Unknown error occured!");
-            }
-            console.log(error);
-        }
 
         $(".create-ac").click(function () {
             $(".error-txt").empty();
