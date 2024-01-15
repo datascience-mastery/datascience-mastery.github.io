@@ -145,7 +145,7 @@ The recall of the minority class in very less. It proves that the model is more 
 You can check all the parameters from <a href="https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.SMOTE.html">here.</a>
 ${FullCode(`
 print("Before OverSampling, counts of label '1': {}".format(sum(y_train == 1))) 
-print("Before OverSampling, counts of label '0': {} \n".format(sum(y_train == 0))) 
+print("Before OverSampling, counts of label '0': {} \\n".format(sum(y_train == 0))) 
 
 # import SMOTE module from imblearn library 
 # pip install imblearn (if you don't have imblearn in your system) 
@@ -154,7 +154,7 @@ sm = SMOTE(random_state = 2)
 X_train_res, y_train_res = sm.fit_sample(X_train, y_train.ravel()) 
 
 print('After OverSampling, the shape of train_X: {}'.format(X_train_res.shape)) 
-print('After OverSampling, the shape of train_y: {} \n'.format(y_train_res.shape)) 
+print('After OverSampling, the shape of train_y: {} \\n'.format(y_train_res.shape)) 
 
 print("After OverSampling, counts of label '1': {}".format(sum(y_train_res == 1))) 
 print("After OverSampling, counts of label '0': {}".format(sum(y_train_res == 0))) `)}
@@ -192,7 +192,7 @@ weighted avg       1.00      0.98      0.99     85443`)}
 You can check all the parameters from <a href="https://imbalanced-learn.org/en/stable/generated/imblearn.under_sampling.NearMiss.html">here.</a>
 ${FullCode(`
 print("Before Undersampling, counts of label '1': {}".format(sum(y_train == 1))) 
-print("Before Undersampling, counts of label '0': {} \n".format(sum(y_train == 0))) 
+print("Before Undersampling, counts of label '0': {} \\n".format(sum(y_train == 0))) 
 
 # apply near miss 
 from imblearn.under_sampling import NearMiss 
@@ -201,7 +201,7 @@ nr = NearMiss()
 X_train_miss, y_train_miss = nr.fit_sample(X_train, y_train.ravel()) 
 
 print('After Undersampling, the shape of train_X: {}'.format(X_train_miss.shape)) 
-print('After Undersampling, the shape of train_y: {} \n'.format(y_train_miss.shape)) 
+print('After Undersampling, the shape of train_y: {} \\n'.format(y_train_miss.shape)) 
 
 print("After Undersampling, counts of label '1': {}".format(sum(y_train_miss == 1))) 
 print("After Undersampling, counts of label '0': {}".format(sum(y_train_miss == 0))) `)}

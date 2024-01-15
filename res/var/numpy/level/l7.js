@@ -67,7 +67,7 @@ ${OutputCode(`[0  0  0  0  0]`)}
 
 k++;
 window["type"+k] = "message";
-window["ti"+k] = `${WordCode('numpy.ones')}`; //title
+window["ti"+k] = `3. ${WordCode('numpy.ones')}`; //title
 window["msg"+k] = `
 <p>Returns a new array of specified size and type, filled with ones.</p>
 ${WordCode("numpy.ones(shape, dtype = None, order = 'C')")}

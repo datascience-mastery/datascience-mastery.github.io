@@ -381,9 +381,7 @@
         openedType = localStorage.openedType;
         
         dict = JSON.parse(localStorage.getItem(openedType));
-        console.log(dict);
         crctDict = dict['crct'];
-        console.log('CrctDict', crctDict);
 
         function LearnTopic(id) {
             $('#tree-con' + id).css({ display: 'flex' });
@@ -490,7 +488,6 @@
         for (i=1; i<=totalMainLevel; i++) {
             if (i > maxLevel) {
                 //these levels are locked
-                console.log('locked')
                 $("#learn"+i).css({backgroundColor:'#747474'});
                 $("#quiz"+i).css({backgroundColor:'#747474'});
                 $("#completed"+i).fadeOut(0);
@@ -501,7 +498,6 @@
                 $("#quiz"+i).css({backgroundColor:'#747474'});
             } else {
                 //already completed
-                console.log(crctDict[i])
                 if (crctDict['k'+i] != null) {
                     $("#crct-num"+i).text(crctDict['k'+i][0]);
                     $("#wrong-num"+i).text(crctDict['k'+i][1]-crctDict['k'+i][0]);
@@ -509,7 +505,6 @@
             }
         }
 
-        console.log('totalMainLevel',totalMainLevel)
         setTimeout(() => {
             $(".bub1").css({ left: '14%', opacity: 1 });
             $(".bub2").css({ right: '12%', opacity: 1 });
