@@ -19,15 +19,14 @@ ${hint}
     `;
 }
 
-function OutputCode(code, red=false) {
+function OutputCode(code, color='green', output=true) {
     Prism.highlightAll();
-    tmp="";
-    if (red) {
-        tmp='red-code';
-    }
+    if (output) {
+        txt = "<h3>Output:</h3>"
+    } else { txt = ''}
     return `
-<h3>Output:</h3>
-<div class="code-bg green-code output-code ${tmp}">
+${txt}
+<div style="border-color:${color};" class="code-bg green-code output-code">
 <pre><code>${code}</code></pre>
 </div>
     `;
