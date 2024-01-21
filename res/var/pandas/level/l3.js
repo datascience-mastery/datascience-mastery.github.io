@@ -68,6 +68,36 @@ day2    380
 day3    390
 dtype: int64`)}
 ${Note('The keys of the dictionary become the labels.')}
+<p>To select only some of the items in the dictionary, use the ${WordCode('index')} argument and specify only the items you want to include in the Series.</p>
+${FullCode(`
+calories = {"day1": 420, "day2": 380, "day3": 390}
+myvar = pd.Series(calories, index = ["day1", "day2"])
+print(myvar)`, 'Create a Series using only data from "day1" and "day2":')}
+${OutputCode(`
+day1    420
+day2    380
+dtype: int64`)}
+`; //message
+
+k++;
+window["type"+k] = "message";
+window["ti"+k] = "DataFrames"; //title
+window["msg"+k] = `
+<p>Data sets in Pandas are usually multi-dimensional tables, called DataFrames.</p>
+<p>Series is like a column, a DataFrame is the whole table.</p>
+${FullCode(`
+data = {
+  "calories": [420, 380, 390],
+  "duration": [50, 40, 45]
+}
+myvar = pd.DataFrame(data)
+print(myvar)`, 'Create a DataFrame from two Series:')}
+${OutputCode(`
+   calories  duration
+0       420        50
+1       380        40
+2       390        45`)}
+<p>You will learn about DataFrames in the next chapter.</p>
 `; //message
 
 totalLevel = k;
